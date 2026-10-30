@@ -17,14 +17,14 @@
   // Safety: the video element carries an onerror fallback to the default film if an
   // override file is ever missing, so an override can never dead-end a page.
   var TEASERS={oscar:'assets/videos/teaser-oscar.mp4','listing-launch':'assets/videos/teaser-listing-launch.mp4','nurture-engine':'assets/videos/teaser-nurture-engine.mp4','quality-scorer':'assets/videos/teaser-quality-scorer.mp4','build-an-empire':'assets/videos/teaser-build-an-empire.mp4',syndicate:'assets/videos/teaser-syndicate.mp4',dardo:'assets/videos/teaser-dardo.mp4',cascade:'assets/videos/teaser-cascade.mp4','coming-soon-funnels':'assets/videos/teaser-coming-soon-funnels.mp4','showing-ops':'assets/videos/teaser-showing-ops.mp4'};
-  var DEFAULT_FILM='https://dl.dropboxusercontent.com/scl/fi/a3d4udyn5lohe4cvrq2kf/fabric-film.mp4?rlkey=mrr8vwpqulc6cfj4ufkannklh&st=h93cr92y&dl=1';
+  var DEFAULT_FILM='assets/videos/fabric-film.mp4';
   var built={};
   MODULES.forEach(function(m){
     var d=document.createElement('div'); d.className='page module-page'; d.id='page-module-'+m.slug;
     var bullets=m.bullets.map(function(b){return '<li>'+b+'</li>';}).join('');
     var hasTeaser=!!TEASERS[m.slug];
     var filmSrc=hasTeaser?TEASERS[m.slug]:DEFAULT_FILM;
-    var filmErr=hasTeaser?" onerror=\"if(this.dataset.fb)return;this.dataset.fb='1';this.src='https://dl.dropboxusercontent.com/scl/fi/a3d4udyn5lohe4cvrq2kf/fabric-film.mp4?rlkey=mrr8vwpqulc6cfj4ufkannklh&st=h93cr92y&dl=1';this.load();\"":'';
+    var filmErr=hasTeaser?" onerror=\"if(this.dataset.fb)return;this.dataset.fb='1';this.src='assets/videos/fabric-film.mp4';this.load();\"":'';
     var filmLabel=hasTeaser?(m.name+' \u2014 the teaser'):'Fabric \u2014 the film';
     var filmCap=hasTeaser?('<div><span>MODULE FILM</span><strong>'+m.name+' \u2014 the 20-second teaser</strong></div><p>Its own film \u2014 one module, twenty seconds.</p>'):('<div><span>THE FABRIC FILM</span><strong>Fabric \u2014 the film, in 114 seconds</strong></div><p>One film for the whole framework. Every module runs inside the operation it shows.</p>');
     var inStart=(m.slug==='listing-launch'||m.slug==='nurture-engine');

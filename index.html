@@ -624,7 +624,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <h2>Book your 20-minute fit call.</h2>
       <p class="sub">This call is for the person the business&rsquo;s problems land on. Twenty minutes, your numbers, a straight verdict. 60 seconds to submit — every submission gets a personal reply.</p>
       <form class="form" id="fitForm" novalidate>
-        <input type="text" name="company_website" id="f-company-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0" aria-hidden="true">
         <div class="field"><label for="f-name">Your name *</label><input id="f-name" name="name" required autocomplete="name" placeholder="Broker-owner / team leader"></div>
         <div class="field"><label for="f-firm">Brokerage / team *</label><input id="f-firm" name="firm" required autocomplete="organization" placeholder="e.g. Smith Group — Cincinnati"></div>
         <div class="field"><label for="f-contact">Email or cell *</label><input id="f-contact" name="contact" required autocomplete="email" placeholder="Best way to reach you"></div>
@@ -1052,7 +1051,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     new IntersectionObserver(function(en){ heroOut = !en[0].isIntersecting; sync(); },{threshold:0}).observe(hero);
     new IntersectionObserver(function(en){ bookIn = en[0].isIntersecting; sync(); },{threshold:0.12}).observe(book);
   }
-  // form: POSTs to /api/submit (SPIIX-1101 re-scope); on-screen confirmation either way
+  // form: instant on-screen confirmation (live wiring = SPIIX-1101)
   var form = document.getElementById('fitForm');
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
@@ -1065,32 +1064,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       });
       return;
     }
-    var volEl = document.getElementById('f-vol');
-    var hpEl = document.getElementById('f-company-website');
     var r = document.getElementById('result');
-    var submitBtn = form.querySelector('button[type="submit"]');
-    function showResult(note){
-      var msg = 'Thanks, ' + name.split(' ')[0] + ' — we received ' + firm + ' at ' + contact + '. Every submission gets a personal reply, with times in the next 2 business days. Then: 20-minute fit call, verdict on the call, private teardown within 48 hours. You pay nothing until you pick Start or Full.';
-      if(note){ msg += ' ' + note; }
-      var rt = document.getElementById('resultText');
-      rt.textContent = msg + ' ';
-      var a = document.createElement('a');
-      a.href = 'https://cal.com/peele/sprint-call';
-      a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = 'Book your time now →';
-      rt.appendChild(a);
-      r.classList.add('show');
-      r.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
-      if(submitBtn){ submitBtn.disabled = false; }
-    }
-    var fallback = 'If you don\'t get a personal reply within the hour, send your details to steve@stevepeeleii.com.';
-    var payload = { name: name, brokerage: firm, contact: contact, stage: '', volume: volEl ? volEl.value : '', team_size: '', pain: '', tc_email: '', company_website: hpEl ? hpEl.value : '' };
-    if(submitBtn){ submitBtn.disabled = true; }
-    if(window.fetch){
-      fetch('/api/submit', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)})
-        .then(function(res){ showResult(res.ok ? null : fallback); })
-        .catch(function(){ showResult(fallback); });
-    } else { showResult(fallback); }
+    document.getElementById('resultText').textContent =
+      'Thanks, ' + name.split(' ')[0] + ' — we received ' + firm + ' at ' + contact + '. Every submission gets a personal reply, with times in the next 2 business days. Then: 20-minute fit call, verdict on the call, private teardown within 48 hours. You pay nothing until you pick Start or Full.';
+    r.classList.add('show');
+    r.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
   });
 })();
 </script>

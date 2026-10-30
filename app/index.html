@@ -503,14 +503,12 @@
 <section class="apply" id="apply"><div class="wrap">
   <div class="kicker">One step left</div>
   <h2>Book your 20-minute fit call.</h2>
-  <p class="sub" style="margin-bottom:22px">Fill this in — 60 seconds. The moment you submit, you'll see your confirmation on screen instantly, and a personal reply follows by email — booking link + 3 call times — with exactly what we received and what happens next. The exact auto-response is shown under the form, word for word — no surprises.</p>
+  <p class="sub" style="margin-bottom:22px">Fill this in — 60 seconds. The moment you submit, you'll see your confirmation on screen and get the same confirmation by email, with exactly what we received and what happens next. The exact auto-response is shown under the form, word for word — no surprises.</p>
   <form class="form-card" id="fitForm">
-    <input type="text" name="company_website" id="f-company-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0" aria-hidden="true">
     <div class="form-grid">
       <div class="field"><label for="f-name">YOUR NAME *</label><input id="f-name" required placeholder="Broker-owner / Team leader"></div>
       <div class="field"><label for="f-brokerage">BROKERAGE / TEAM *</label><input id="f-brokerage" required placeholder="e.g. Smith Group — Cincinnati"></div>
       <div class="field"><label for="f-contact">EMAIL OR CELL *</label><input id="f-contact" required placeholder="Best way to reach you"></div>
-      <div class="field"><label for="f-tcemail">TC / ADMIN EMAIL — OPTIONAL</label><input id="f-tcemail" type="email" placeholder="We'll send them the booking kit"></div>
       <div class="field"><label for="f-pkg">STAGE YOU'RE LEANING TOWARD</label><select id="f-pkg"><option>Full — $3,950/mo (recommended)</option><option>Start — $1,950/mo</option><option>Not sure — tell me on the call</option></select></div>
       <div class="field"><label for="f-vol">LAST 12 MONTHS</label><select id="f-vol"><option>$50M–$100M / 100–200 sides (team)</option><option>$100M–$250M / 200–500 sides</option><option>$250M+ (brokerage) / 500+ sides</option><option>Under that — but growing fast</option></select></div>
       <div class="field"><label for="f-team">TEAM SIZE</label><select id="f-team"><option>6–10 agents</option><option>11–20 agents</option><option>21–50 agents</option><option>50+ agents / multi-office</option></select></div>
@@ -520,7 +518,6 @@
     <p class="micro" style="text-align:center;margin-top:10px">Pilot pricing locked for the first 3 Market Movers. You pay only after you pick a product on the call — the first month's fee, paid up front to start.</p>
     <div class="result" id="result" aria-live="polite"></div>
     <div id="resultActions" style="display:none;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a class="btn" id="calBtn" href="https://cal.com/peele/sprint-call" target="_blank" rel="noopener">Book Your Time Now →</a>
       <a class="btn dark" id="mailtoBtn" href="#">Send via Email →</a>
       <button class="btn ghost" type="button" id="copyBtn">Copy My Confirmation</button>
     </div>
@@ -529,7 +526,7 @@
 
   <!-- AUTO SUBMISSION RESPONSE — EXACT TEXT -->
   <div class="autoresp" aria-label="Exact automatic confirmation you receive after submitting">
-    <div class="autoresp-head"><b>The exact auto-response you get when you submit</b><span>ON SCREEN INSTANTLY · PERSONAL REPLY BY EMAIL</span></div>
+    <div class="autoresp-head"><b>The exact auto-response you get when you submit</b><span>ON SCREEN INSTANTLY + BY EMAIL</span></div>
     <div class="autoresp-body"><strong>Subject: Received — [Your Brokerage] Fit Call Request | Fabric Market Movers</strong>
 
 ✓ You're in. Your fit call request has been received — here's exactly what we got and what happens next.
