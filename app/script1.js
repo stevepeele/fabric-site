@@ -28,6 +28,10 @@ form.addEventListener('submit',function(e){
   var vol=document.getElementById('f-vol').value;
   var team=document.getElementById('f-team').value;
   var pain=document.getElementById('f-pain').value;
+  var tcEl=document.getElementById('f-tcemail');
+  var tcemail=tcEl?tcEl.value.trim():'';
+  var hpEl=document.getElementById('f-company-website');
+  var website=hpEl?hpEl.value:'';
   if(!name||!brok||!contact){ return; }
 
   var upfront = pkg.indexOf('Start')===0 ? 'the first month of Start ($1,950)' : (pkg.indexOf('Full')===0 ? 'the first month of Full ($3,950)' : 'the first month of your chosen product at pilot pricing');
@@ -52,10 +56,11 @@ form.addEventListener('submit',function(e){
 "No spam, no sales sequence. One scheduling email, one call, one teardown.\n\n" +
 "— Fabric · pros.signalsbyspii.com · also at pros.stevepeeleii.com";
 
+  function showConfirmation(fallbackNote){
   var res=document.getElementById('result');
   res.innerHTML =
     '<h3>✓ You\'re in, ' + name.replace(/</g,'&lt;') + '. Request received for ' + brok.replace(/</g,'&lt;') + '.</h3>' +
-    '<p style="margin:0">This is your confirmation — the same text is on its way to <b>' + contact.replace(/</g,'&lt;') + '</b>. Use “Send via Email” below to deliver it instantly if your mail app is handy; either way, we have what we need.</p>' +
+    '<p style="margin:0">This is your confirmation — your request is in. A personal reply is on its way to <b>' + contact.replace(/</g,'&lt;') + '</b> with the booking link + 3 call times — or book right now with the “Book Your Time Now” button below.</p>' +
     '<h4>WHAT WE RECEIVED</h4><ul>' +
     '<li><b>Stage leaning:</b> ' + pkg.replace(/</g,'&lt;') + '</li>' +
     '<li><b>Last 12 months:</b> ' + vol.replace(/</g,'&lt;') + '</li>' +
@@ -68,6 +73,7 @@ form.addEventListener('submit',function(e){
     '<li><b>Within 48 hours after the call:</b> your Private Teardown (scored PDF + walkthrough video) — yours to keep either way.</li>' +
     '<li><b>If it\'s a fit:</b> pay ' + upfront + ' up front by secure link (pilot pricing, no separate start fee) → 14-Day Proof Sprint starts within 3 business days, Proof live by Day 14 — nothing broken.</li></ol>' +
     '<p class="fineprint">No spam, no sales sequence. One scheduling email, one call, one teardown. — Fabric · pros.signalsbyspii.com · pros.stevepeeleii.com</p>';
+    if(fallbackNote){ res.innerHTML += '<p class="fineprint">' + fallbackNote + '</p>'; }
   res.classList.add('show');
   var actions=document.getElementById('resultActions'); actions.style.display='flex';
   document.getElementById('mailtoBtn').href="mailto:hello@signalsbyspii.com?subject="+encodeURIComponent("Fit Call Request — "+brok+" (Fabric Market Movers)")+"&body="+encodeURIComponent(emailText);
@@ -75,4 +81,15 @@ form.addEventListener('submit',function(e){
     if(navigator.clipboard){ navigator.clipboard.writeText(emailText).then(function(){ document.getElementById('copyBtn').textContent='Copied ✓'; }); }
   };
   res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  var submitBtn=form.querySelector('button[type="submit"]');
+  if(submitBtn){ submitBtn.disabled=true; }
+  var fallback='If you don\'t get a personal reply within the hour, send your details to steve@stevepeeleii.com.';
+  var payload={ name:name, brokerage:brok, contact:contact, stage:pkg, volume:vol, team_size:team, pain:pain, tc_email:tcemail, company_website:website };
+  function done(note){ if(submitBtn){ submitBtn.disabled=false; } showConfirmation(note); }
+  if(window.fetch){
+    fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ done(r.ok?null:fallback); })
+      .catch(function(){ done(fallback); });
+  } else { done(fallback); }
 });
