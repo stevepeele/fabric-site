@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "pros.stevepeeleii.com" }],
+      "destination": "https://fabric.stevepeeleii.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "pros.signalsbyspii.com" }],
+      "destination": "https://fabric.stevepeeleii.com/:path*",
+      "permanent": true
+    }
+  ]
+}

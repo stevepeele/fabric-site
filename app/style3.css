@@ -1,0 +1,53 @@
+
+/* ===== SPLIT PAGES + CALM PASS — mobile-first, light but defined ===== */
+.page{display:none}
+.page.active{display:block;animation:pageIn .6s cubic-bezier(0.2,0,0,1) both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+.pagenav{display:flex;flex-wrap:wrap;gap:8px;padding-top:0;padding-bottom:14px}
+.pagenav a{text-decoration:none;font-size:13px;font-weight:700;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(23,21,18,.55)}
+.pagenav a.on{color:#17130A;background:var(--accent);border-color:var(--accent)}
+.pagenav a.pagenav-cta{color:var(--accent);border-color:rgba(200,169,106,.55)}
+.pagenav a.pagenav-cta.on{color:#17130A}
+.head nav{display:none!important}
+/* calm the motion: slower, rarer, lighter */
+.hero{min-height:0;padding:44px 18px 56px}
+.thread-field{opacity:.45}
+.thread-field canvas{opacity:.6}
+.fabric-wordmark{font-size:clamp(64px,16vw,200px);animation-duration:1s}
+.fabric-wordmark::after{animation-duration:1.6s}
+.hero h1,.hero p.lead,.hero .qual,.hero .cta-row,.hero .micro,.hero .scarcity,.hero-grid,.hero .pill{animation-duration:.9s;animation-delay:.15s}
+.thread-hero svg,.thread-hero .flow{animation:none!important}
+.rv,.rv-l,.rv-r,.reveal{transition:opacity 1.3s cubic-bezier(0.2,0,0,1),transform 1.3s ease!important;transition-delay:0s!important}
+.pkg:hover,.pain:hover,.math-card:hover,.case:hover,.dl-card:hover,.model-card:hover,.bolton-card:hover,.carrot:hover{transform:none!important;box-shadow:none!important}
+.carrot{transition:none}
+/* clearer boundaries, more air */
+.page section{padding:64px 0}
+.page section+section{border-top:1px solid var(--line)}
+@media(min-width:900px){.page section{padding:88px 0}.hero{padding:64px 24px 80px}}
+/* mobile-first type + form comfort */
+.hero h1{font-size:clamp(38px,10vw,76px)}
+h2{font-size:clamp(30px,7.5vw,56px)}
+.field input,.field select{padding:15px 14px;font-size:16px}
+.form-card{padding:20px}
+@media(min-width:640px){.form-card{padding:28px}}
+/* home stages summary */
+.sum-grid{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.sum-grid{grid-template-columns:repeat(3,1fr)}}
+.sum-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.sum-card h3{margin:6px 0 2px;font-size:22px}
+.sum-card p{color:var(--ink2);font-size:14.5px;line-height:1.6;margin:8px 0 0}
+.sum-card .price{font-size:30px}
+.home-cta{background:var(--paper2);border:1px solid var(--line);border-radius:18px;padding:26px;text-align:left}
+.home-cta h3{font-size:clamp(24px,3vw,34px);font-weight:400;letter-spacing:-.03em;margin:0 0 8px}
+.home-cta p{color:var(--ink2);margin:0 0 18px;max-width:560px;line-height:1.6}
+@media (prefers-reduced-motion: reduce){.page.active{animation:none}}
+/* mobile header: lean — logo + one CTA, nav in a single row */
+@media(max-width:640px){
+  .head{padding:10px 0 8px;gap:10px}
+  .logo small{display:none}
+  .head .btn.ghost{display:none}
+  .head .btn.small{padding:10px 14px;font-size:12.5px;white-space:nowrap}
+  .logo{font-size:20px}
+  .pagenav{flex-wrap:wrap;overflow:visible;padding-bottom:12px;gap:6px}
+  .pagenav a{padding:7px 11px;font-size:12px}
+}

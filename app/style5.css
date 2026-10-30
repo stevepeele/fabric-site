@@ -1,0 +1,86 @@
+
+/* ===== AESTHETIC REBUILD v7 — CALM, ONE IDEA PER SCREEN, DIAGRAMS CARRY THE VALUE ===== */
+:root{--line:rgba(244,239,227,.08);--gold:#C8A96A;--gold-hi:#E9D5A3}
+body{font-weight:300}
+.page section{padding:96px 0;border-top:0!important}
+.page section+section{border-top:0!important}
+@media(max-width:640px){.page section{padding:64px 0}}
+.hero{padding:72px 24px 88px}
+.thread-field{opacity:.30}
+.thread-field canvas{opacity:.5}
+.weave-loose::before,.weave-tight::before{opacity:0!important;background:none!important}
+.fabric-wordmark{font-size:clamp(56px,14vw,168px);-webkit-text-stroke:1px rgba(233,213,163,.22)}
+h2{font-weight:300}
+.sub{font-size:18px;line-height:1.7;max-width:600px}
+.pain,.math-card,.case,.dl-card,.model-card,.fit-box,.sum-card,.module-card,.bolton-card{background:rgba(255,255,255,.015);border-color:rgba(244,239,227,.07);box-shadow:none!important}
+.pkg{box-shadow:none!important}
+.btn{transition:background .45s cubic-bezier(0.2,0,0,1),border-color .45s cubic-bezier(0.2,0,0,1),color .45s cubic-bezier(0.2,0,0,1);box-shadow:none!important}
+.btn:hover{transform:none!important;box-shadow:none!important}
+.rv,.rv-l,.rv-r,.reveal{transition:opacity 1.6s cubic-bezier(0.2,0,0,1),transform 1.6s cubic-bezier(.16,1,.3,1)!important}
+.kicker{letter-spacing:.28em}
+/* --- Diagrams: the value, with the words turned off --- */
+.viz{margin:56px 0 8px;border:1px solid rgba(200,169,106,.18);border-radius:20px;background:linear-gradient(180deg,rgba(200,169,106,.045),rgba(200,169,106,0) 55%);padding:36px 32px 28px;overflow:hidden}
+.viz-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin-bottom:8px}
+.viz-head b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.viz-head span{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--accent)}
+.viz p.viz-note{margin:14px 0 0;color:var(--muted);font-size:13.5px;line-height:1.6;max-width:560px}
+.viz svg{width:100%;height:auto;display:block}
+.viz .draw{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1) .15s}
+.viz .draw2{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.4s cubic-bezier(.16,1,.3,1) .55s}
+.viz .fade{opacity:0;transition:opacity 1.2s ease .9s}
+.viz.in .draw,.viz.in .draw2{stroke-dashoffset:0}
+.viz.in .fade{opacity:1}
+.viz text{font-family:"Archivo",sans-serif;fill:var(--ink)}
+.viz .t-small{font-size:11px;letter-spacing:.14em;font-weight:700;fill:var(--muted)}
+.viz .t-gold{fill:var(--accent)}
+.viz .t-dim{fill:var(--ink2)}
+@media(max-width:640px){.viz{padding:22px 16px 18px;margin:36px 0 4px;border-radius:16px}.viz svg text{font-size:12px}}
+/* commission visual */
+.comm-viz{display:grid;gap:10px;margin-top:28px}
+.comm-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.comm-row label{font-size:11px;letter-spacing:.16em;font-weight:800;color:var(--muted);width:150px;flex:none}
+.comm-bar{height:14px;border-radius:99px;background:rgba(244,239,227,.07);flex:1;min-width:180px;overflow:hidden}
+.comm-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,rgba(200,169,106,.55),var(--gold-hi));transition:width 2s cubic-bezier(.16,1,.3,1) .2s}
+.viz.in .comm-bar i,.comm-viz.in .comm-bar i{width:var(--w)}
+.comm-row b{font-size:14px;white-space:nowrap}
+/* module flow (injected on every module page) */
+.flow{margin-top:28px;border:1px solid rgba(200,169,106,.18);border-radius:18px;padding:26px;background:linear-gradient(180deg,rgba(200,169,106,.04),transparent)}
+.flow span.fl-k{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--accent);display:block;margin-bottom:14px}
+.flow-steps{display:grid;gap:0}
+@media(min-width:760px){.flow-steps{grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch}}
+.flow-step{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(255,255,255,.015)}
+.flow-step b{display:block;font-size:15px;margin-bottom:6px}
+.flow-step p{margin:0;color:var(--ink2);font-size:13.5px;line-height:1.55}
+.flow-arrow{display:grid;place-items:center;color:var(--accent);font-size:20px;padding:8px 10px}
+@media(max-width:759px){.flow-arrow{transform:rotate(90deg)}}
+/* --- The Proof page --- */
+.proof-hero{padding-top:24px}
+.proof-hero h2{font-size:clamp(40px,7vw,72px);line-height:1.0;max-width:820px}
+.proof-hero h2 em{font-family:inherit;font-style:italic;color:var(--accent);font-weight:500}
+.proof-big{font-size:clamp(24px,3.6vw,38px);font-weight:300;line-height:1.35;letter-spacing:-.02em;max-width:760px;margin:0}
+.proof-big b{font-weight:600;color:var(--accent)}
+.receipt-grid{display:grid;gap:14px;margin-top:36px}
+@media(min-width:860px){.receipt-grid{grid-template-columns:1fr 1fr}}
+.receipt{border-top:1px solid rgba(200,169,106,.35);padding:22px 4px 8px}
+.receipt span{font-size:11px;letter-spacing:.2em;font-weight:800;color:var(--accent);display:block;margin-bottom:10px}
+.receipt h3{margin:0 0 8px;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.receipt p{margin:0;color:var(--ink2);font-size:15px;line-height:1.65}
+.timeline-proof{display:grid;gap:0;margin-top:36px}
+.tp-row{display:grid;gap:6px;padding:26px 0;border-top:1px solid var(--line)}
+@media(min-width:760px){.tp-row{grid-template-columns:210px 1fr;gap:28px}}
+.tp-row b{font-size:12px;letter-spacing:.18em;color:var(--accent)}
+.tp-row h3{margin:0 0 6px;font-size:19px;font-weight:600}
+.tp-row p{margin:0;color:var(--ink2);font-size:15px;line-height:1.65;max-width:620px}
+@media (prefers-reduced-motion: reduce){
+  .viz .draw,.viz .draw2{stroke-dashoffset:0!important;transition:none!important}
+  .viz .fade{opacity:1!important;transition:none!important}
+  .comm-bar i{width:var(--w)!important;transition:none!important}
+}
+.sliver-big{font-size:clamp(28px,4.4vw,44px);font-weight:300;line-height:1.18;letter-spacing:-.025em;max-width:820px;margin:28px 0 0}
+.sliver-big b{font-weight:600;color:var(--accent)}
+.sliver-cols{display:grid;gap:22px;margin-top:8px}
+@media(min-width:860px){.sliver-cols{grid-template-columns:1fr 1fr;gap:36px}}
+.sliver-cols p{margin:0;color:var(--ink2);font-size:16.5px;line-height:1.7;font-weight:300}
+.sliver-cols p b{color:var(--ink);font-weight:600}
+.sliver-id{margin-top:26px;border-top:1px solid rgba(200,169,106,.35);padding-top:22px;color:var(--ink2);font-size:15.5px;line-height:1.7;max-width:760px}
+.sliver-id b{color:var(--ink)}
