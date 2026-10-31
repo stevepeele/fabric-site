@@ -1,0 +1,45 @@
+/* FABRIC ELEVATION II - SPIIX-1086 (2026-10-31)
+   Final polish layer for the app surface, loaded last on purpose.
+   Canon: near-black, off-white, one champagne gold. Archivo 300/400/500 only.
+   Motion tokens match the homepage: ease-out-strong cubic-bezier(0.23,1,0.32,1),
+   standard cubic-bezier(0.2,0,0,1). Editorial reveals run 650ms, once.
+   Nothing in this file changes copy, layout structure, or offers. */
+
+/* Palette discipline: the legacy orange remnants go gold */
+.dot{background:var(--gold)}
+.band .kicker{color:var(--gold-hi)}
+.not-card.yes h3 span{color:var(--gold-hi)}
+
+/* Editorial type: only the weights the font actually ships.
+   Display type goes light, the way the homepage hero is set. */
+.hero h1{font-weight:300;letter-spacing:-.045em}
+.logo{font-weight:500}
+.foot-brand{font-weight:500}
+.btn{font-weight:500}
+.kicker{font-weight:500}
+.pill{font-weight:500}
+.qual span{font-weight:500}
+.spots i{font-weight:500}
+
+/* Hairline form discipline: content cards sit sharp and shadowless,
+   like the panels on the homepage. Pills and buttons keep their shape. */
+.module-card,.model-card,.vm-card,.not-card,.pkg,.scarcity,.math-card,.dl-card,.role-tile,.hero-img{border-radius:2px}
+.module-card,.model-card,.vm-card,.not-card,.pkg,.math-card,.dl-card,.role-tile{box-shadow:none}
+
+/* Keyboard focus, visible and on-palette */
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Scroll reveals. The hidden state exists only when script12 arms it
+   (html.rv), so content is never trapped invisible without JS.
+   The reveal is an animation, not a transition, so hover transforms
+   on cards keep working after the reveal finishes. */
+html.rv [data-rv]{opacity:0}
+html.rv [data-rv].in{opacity:1;animation:rvIn 650ms cubic-bezier(0.2,0,0,1) backwards;animation-delay:var(--rvd,0ms)}
+@keyframes rvIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Reduced motion: everything lands still, everywhere on this surface */
+@media (prefers-reduced-motion: reduce){
+  html.rv [data-rv]{opacity:1}
+  html.rv [data-rv].in{animation:none}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
