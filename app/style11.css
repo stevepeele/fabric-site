@@ -1,0 +1,46 @@
+/* ============================================================
+   FABRIC — CONTROL TOWER CHAT / MEET SBII (SPIIX-1109, Stage 2)
+   Copy is locked: CHAT-FLOW-MEET-SBII.md. Design: Loom x Tower.
+   ============================================================ */
+.sbii-pill{position:fixed;right:18px;bottom:18px;z-index:70;display:flex;flex-direction:column;align-items:flex-start;gap:1px;background:linear-gradient(180deg,#E9D5A3,#C8A96A);color:#171307;border:0;border-radius:14px;padding:11px 16px;cursor:pointer;box-shadow:0 14px 34px rgba(0,0,0,.5);font-family:Archivo,Inter,system-ui,sans-serif;text-align:left}
+.sbii-pill b{font-size:14px;letter-spacing:.02em}
+.sbii-pill span{font-size:10.5px;font-weight:600;opacity:.75}
+.sbii-pill:hover{filter:brightness(1.06)}
+body.sbii-on-book .sbii-pill{display:none}
+@media(max-width:760px){.sbii-pill{bottom:78px;right:14px;padding:10px 14px}.sbii-pill span{display:none}}
+.sbii-panel{position:fixed;right:18px;bottom:86px;z-index:71;width:min(380px,calc(100vw - 24px));max-height:min(640px,calc(100dvh - 130px));display:none;flex-direction:column;background:#100F0D;border:1px solid rgba(200,169,106,.35);border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.65);overflow:hidden;font-family:Archivo,Inter,system-ui,sans-serif;color:#F4EFE3}
+.sbii-panel.open{display:flex;animation:sbiiUp .35s cubic-bezier(.22,1,.36,1)}
+@keyframes sbiiUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.sbii-panel{right:0;left:0;bottom:0;width:100%;max-height:100dvh;height:100dvh;border-radius:0}}
+.sbii-head{display:flex;align-items:center;gap:9px;padding:13px 15px;border-bottom:1px solid rgba(244,239,227,.09);background:#0B0A08}
+.sbii-head .dot{width:8px;height:8px;border-radius:50%;background:#7FB069;box-shadow:0 0 0 4px rgba(127,176,105,.15);flex:none}
+.sbii-head b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;letter-spacing:.14em}
+.sbii-head small{display:block;font-family:Archivo,Inter,sans-serif;letter-spacing:0;font-size:11px;color:#A29A89;margin-top:1px}
+.sbii-x{margin-left:auto;background:none;border:1px solid rgba(244,239,227,.16);color:#F4EFE3;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:14px;line-height:1}
+.sbii-body{padding:14px 15px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;flex:1}
+.sbii-msg{max-width:88%;padding:10px 12px;border-radius:12px;font-size:13.5px;line-height:1.5;white-space:pre-line}
+.sbii-msg.bot{background:#171512;border:1px solid rgba(244,239,227,.08);align-self:flex-start;border-bottom-left-radius:4px}
+.sbii-msg.me{background:rgba(200,169,106,.16);border:1px solid rgba(200,169,106,.35);align-self:flex-end;border-bottom-right-radius:4px}
+.sbii-msg.sys{background:rgba(127,176,105,.1);border:1px solid rgba(127,176,105,.35);align-self:stretch;max-width:100%}
+.sbii-msg .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.12em;color:#C8A96A;display:block;margin-bottom:5px}
+.sbii-acts{display:flex;flex-wrap:wrap;gap:7px}
+.sbii-btn{background:#1B1915;color:#F4EFE3;border:1px solid rgba(244,239,227,.18);border-radius:999px;padding:9px 13px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.sbii-btn:hover{border-color:rgba(200,169,106,.6)}
+.sbii-btn.gold{background:linear-gradient(180deg,#E9D5A3,#C8A96A);color:#171307;border-color:transparent}
+.sbii-btn:disabled{opacity:.5;cursor:default}
+.sbii-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 15px;border-top:1px solid rgba(244,239,227,.08);background:#0B0A08}
+.sbii-chips span{width:100%;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.14em;color:#A29A89}
+.sbii-chip{background:none;border:1px solid rgba(244,239,227,.16);color:#D8D1C0;border-radius:999px;padding:6px 10px;font-size:11.5px;cursor:pointer;font-family:inherit}
+.sbii-chip:hover{border-color:rgba(200,169,106,.55);color:#E9D5A3}
+.sbii-form{display:flex;flex-direction:column;gap:8px;align-self:stretch}
+.sbii-form label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;letter-spacing:.14em;color:#A29A89}
+.sbii-form input{background:#171512;border:1px solid rgba(244,239,227,.16);border-radius:9px;color:#F4EFE3;padding:10px 12px;font-size:14px;font-family:inherit;width:100%}
+.sbii-form input:focus{outline:none;border-color:#C8A96A;box-shadow:0 0 0 3px rgba(200,169,106,.18)}
+/* placements */
+.sbii-band{margin:26px auto 0;max-width:860px;border:1px solid rgba(200,169,106,.35);border-left:3px solid #C8A96A;border-radius:14px;background:rgba(200,169,106,.05);padding:20px 22px;text-align:left}
+.sbii-band .bk{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;letter-spacing:.16em;color:#C8A96A}
+.sbii-band h3{margin:7px 0 6px;font-size:21px;color:#F4EFE3}
+.sbii-band p{margin:0 0 12px;color:#D8D1C0;font-size:14.5px;line-height:1.55;max-width:640px}
+.sbii-band .bf{margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.14em;color:#A29A89}
+.sbii-band.small h3{font-size:18px}
+@media (prefers-reduced-motion: reduce){.sbii-panel.open{animation:none}}

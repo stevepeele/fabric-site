@@ -1,0 +1,36 @@
+/* ============================================================
+   FABRIC — CASES BY ROLE (SPIIX-1107, Stage 2)
+   Index tiles + the 7 role experiences, Loom x Tower language.
+   ============================================================ */
+.role-grid{display:grid;gap:16px;margin-top:26px}
+@media(min-width:760px){.role-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.role-grid{grid-template-columns:1fr 1fr 1fr}}
+.role-tile{display:block;text-decoration:none;background:linear-gradient(180deg,var(--s2-panel2),var(--s2-panel));border:1px solid var(--s2-line);border-radius:14px;padding:18px;transition:transform .45s var(--s2-ease),border-color .45s var(--s2-ease)}
+.role-tile:hover{transform:translateY(-3px);border-color:rgba(200,169,106,.45)}
+.role-tile svg{width:100%;height:84px;display:block;margin-bottom:12px}
+.role-tile .rt-k{font-family:var(--s2-mono);font-size:9.5px;letter-spacing:.16em;color:var(--s2-gold)}
+.role-tile h3{margin:6px 0 6px;font-size:20px;color:var(--s2-ink)}
+.role-tile p{margin:0;font-size:14px;line-height:1.55;color:var(--s2-ink2)}
+.role-tile .rt-ret{display:block;margin-top:12px;padding-top:10px;border-top:1px solid var(--s2-line2);font-family:var(--s2-mono);font-size:10px;letter-spacing:.1em;color:var(--s2-gold-hi)}
+.pattern-close{margin-top:34px;border:1px solid rgba(200,169,106,.4);border-left:3px solid var(--s2-gold);border-radius:12px;background:rgba(200,169,106,.05);padding:22px}
+.pattern-close h3{margin:0 0 8px;font-size:22px}
+.pattern-close p{margin:0;color:var(--s2-ink2);line-height:1.6}
+.pattern-close .outcome{margin-top:12px}
+
+/* role pages */
+.role-promise{font-size:clamp(20px,2.6vw,27px);line-height:1.35;color:var(--s2-ink);font-weight:600;max-width:760px;margin:10px 0 22px}
+.role-h{margin:38px 0 14px;font-size:13px;font-family:var(--s2-mono);letter-spacing:.18em;color:var(--s2-gold);font-weight:600}
+.role-day{border:1px solid var(--s2-line);border-radius:14px;background:linear-gradient(180deg,var(--s2-panel2),var(--s2-panel));padding:8px 20px}
+.role-chips{display:flex;gap:8px;flex-wrap:wrap}
+.role-chip{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:13px;font-weight:600;color:var(--s2-ink);border:1px solid var(--s2-line);border-radius:999px;padding:9px 14px;background:rgba(244,239,227,.02)}
+.role-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--s2-gold)}
+.role-chip:hover{border-color:rgba(200,169,106,.5);color:var(--s2-gold-hi)}
+.role-never ul{margin:0}
+.role-outcome{margin-top:34px;border:1px solid var(--s2-line);border-radius:14px;background:linear-gradient(180deg,#12100D,#0D0C0A);padding:24px}
+.role-outcome-k{font-family:var(--s2-mono);font-size:10px;letter-spacing:.18em;color:var(--s2-gold)}
+.role-outcome-big{font-size:clamp(34px,5vw,54px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:8px 0 6px;color:var(--s2-ink)}
+.role-outcome p{color:var(--s2-ink2);margin:0;max-width:640px;line-height:1.6}
+.role-testimony{margin-top:20px;padding-top:16px;border-top:1px solid var(--s2-line2);font-size:17px;color:var(--s2-ink);line-height:1.55}
+.role-testimony span{display:block;margin-top:8px;font-family:var(--s2-mono);font-size:9px;letter-spacing:.14em;color:var(--s2-muted)}
+.film-slot{margin-top:18px;aspect-ratio:16/9;border:1px dashed rgba(200,169,106,.4);border-radius:12px;display:grid;place-items:center;background:rgba(200,169,106,.03)}
+.film-slot span{font-family:var(--s2-mono);font-size:10px;letter-spacing:.16em;color:var(--s2-muted);text-align:center;padding:0 14px}
