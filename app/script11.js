@@ -194,18 +194,23 @@
     msg('They\u2019ll see the teardown offer too \u2014 48 hours, theirs to keep either way.');
   }
   /* quick-ask chips (spec Sec.4) */
-  var CHIPQ = { price:'What does it cost?', va:'Is this a VA service?', breaks:'Will it break our stack?', human:'Can I just talk to a human?' };
+  var CHIPQ = { price:'What does it cost?', va:'Is this a VA service?', breaks:'Will it break our stack?', human:'Can I just talk to a human?', timeline:'What happens after the first months?' };
   var CHIPA = {
     price:'Two prices. Start at $1,950. Full Fabric is $3,950 \u2014 everything included. First month up front either way. No module math, no seat traps.',
     va:'No. A VA waits for instructions and works your hours. Fabric is a framework installed on your stack and run by an engine \u2014 Oscar \u2014 on fixed cadences, to named standards, reported monthly. It doesn\u2019t sleep, and it doesn\u2019t need managing.',
     breaks:'Nothing is ripped out. Nothing is replaced. Fabric installs on the systems you already run \u2014 your CRM, dotloop, your email \u2014 and defines how they get used. If a tool truly can\u2019t carry the discipline, we\u2019ll show you in the teardown before you pay anything.',
-    human:'That\u2019s literally the meeting. The Tower just makes sure the right humans get the 20 minutes.'
+    human:'That\u2019s literally the meeting. The Tower just makes sure the right humans get the 20 minutes.',
+    timeline:'Four stages, one direction. Install \u2014 Months 1\u20132 flat, the framework goes in, nothing breaks. Stand By \u2014 from Month 3, opt in and pay out of what closes: Performance Cover, 20% of GCI on Fabric-touched sides, capped at your flat fee; a month that closes nothing charges nothing, it rolls. Net Zero \u2014 the month attributed GCI reaches 5\u00d7 the fee, the closings cover it in full. Graduate \u2014 Net Zero proven, you move to Full and unlock the rest. You pay flat while we install. Then you pay out of what closes. Then it pays for itself. Then you unlock the rest.'
   };
   Object.keys(CHIPQ).forEach(function(k){
     var b = document.createElement('button'); b.className = 'sbii-chip'; b.textContent = CHIPQ[k];
     b.addEventListener('click', function(){
       openPanel();
       me(CHIPQ[k]); msg(CHIPA[k]);
+      if (k === 'timeline') acts([
+        { label:'See Pricing', fn:function(){ closePanel(); location.hash = '#/pricing'; } },
+        { label:'Book the 20 \u2192', gold:true, fn:function(){ window.open(CAL, '_blank', 'noopener'); } }
+      ]);
       if (k === 'human' && state.step !== 'done') acts([{ label:'Route me \u2192', gold:true, fn:function(){ if (state.step === 'idle' || !state.started) startFlow(); else q1(); } }]);
     });
     chips.appendChild(b);

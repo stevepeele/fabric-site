@@ -1,0 +1,16 @@
+/* ===== ACCELERATION TIMELINE — placements (SPIIX-1106/1111, staged deploy23) =====
+   Stages, not tiers. Copy: ACCELERATION-TIMELINE.md. No prices live here.
+   No animation is introduced by this layer — reduced-motion respected by construction. */
+.arc{margin:36px 0;padding:24px 24px 20px;border:1px solid var(--line);background:rgba(244,239,227,.03)}
+.arc-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px}
+.arc-head b{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.22em;color:var(--gold,#C8A96A)}
+.arc-head span{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;color:var(--muted)}
+.arc-line{margin:16px 0 4px;font-size:19px;line-height:1.45;color:var(--ink);max-width:62ch}
+.arc-stages{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:14px}
+.arc-stage{border-top:2px solid var(--gold,#C8A96A);padding-top:10px}
+.arc-stage .arc-k{display:block;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.18em;color:var(--gold,#C8A96A)}
+.arc-stage b{display:block;margin-top:6px;font-size:15px;color:var(--ink)}
+.arc-stage p{margin-top:5px;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.arc-lead{margin:28px 0 8px}
+@media (max-width:900px){ .arc-stages{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .arc-stages{grid-template-columns:1fr} .arc{padding:18px 16px 14px} .arc-line{font-size:17px} }
